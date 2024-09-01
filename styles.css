@@ -1,0 +1,189 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Product Card */
+.product-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    border-radius: 15px;
+    max-width: 100%;
+}
+
+.product-card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product-card p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Dynamic Island */
+.dynamic-island {
+    position: fixed;
+    top: 20px;
+    width: 300px;
+    height: 60px;
+    background-color: black;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: white;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease, background-color 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100px) scale(0.5);
+}
+
+.dynamic-island.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly darker background on show */
+}
+
+.cart-icon {
+    font-size: 24px;
+    animation: bounce 0.6s ease infinite alternate, pulse 1s ease infinite;
+}
+
+.cart-details {
+    flex: 1;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards 0.3s, slideIn 0.6s ease forwards;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-to-cart-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.add-to-cart-btn:hover {
+    background-color: #333;
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* New Dock Styles */
+.dock {
+    width: 343px;
+    height: 83px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Optional: adds shadow */
+}
+
+/* Add any additional styles needed for the new dock, such as padding or specific item styles */
+
+.dock-item {
+    background: transparent;
+    border: none;
+    color: #333; /* Text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.dock-item:hover {
+    color: #2196F3; /* Hover color */
+}
