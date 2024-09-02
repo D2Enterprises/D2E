@@ -55,7 +55,7 @@ main {
     top: 20px;
     width: 300px;
     height: 60px;
-    background-color: black;
+    background-color: black; /* Pure black background */
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -66,13 +66,14 @@ main {
     opacity: 0;
     pointer-events: none;
     transform: translateY(-100px) scale(0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Optional shadow */
 }
 
 .dynamic-island.show {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0) scale(1);
-    background-color: rgba(0, 0, 0, 0.8); /* Slightly darker background on show */
+    background-color: rgba(0, 0, 0, 0.9); /* Slightly darker background on show */
 }
 
 .cart-icon {
@@ -84,7 +85,7 @@ main {
     flex: 1;
     text-align: center;
     opacity: 0;
-    animation: fadeIn 0.6s ease forwards 0.3s, slideIn 0.6s ease forwards;
+    animation: fadeIn 0.6s ease forwards 0.3s, slideIn 0.6s ease forwards, scaleUp 0.6s ease forwards;
 }
 
 @keyframes bounce {
@@ -125,6 +126,17 @@ main {
     }
 }
 
+@keyframes scaleUp {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 /* Add to Cart Button */
 .add-to-cart-btn {
     padding: 5px 10px;
@@ -136,7 +148,7 @@ main {
     background-color: black;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -155,7 +167,6 @@ main {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-
 /* New Dock Styles */
 .dock {
     width: 343px;
@@ -170,18 +181,27 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Optional: adds shadow */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Add any additional styles needed for the new dock, such as padding or specific item styles */
-
+/* Dock Item Styles */
 .dock-item {
     background: transparent;
     border: none;
-    color: #333; /* Text color */
-    font-size: 16px; /* Font size */
+    color: black; /* Text color */
+    font-size: 18px; /* Font size */
+    text-align: center;
     cursor: pointer;
     transition: color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dock-item i {
+    color: black; /* Icon color */
+    font-size: 24px; /* Icon size */
+    margin-bottom: 5px;
 }
 
 .dock-item:hover {
